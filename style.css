@@ -1,0 +1,146 @@
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Eye-Comfort Dark Background */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #172033 0%, #0b0f19 100%);
+    padding: 20px;
+    color: #e2e8f0;
+}
+
+/* Main Dark Card */
+.counter-card {
+    background: #131b2e;
+    padding: 2.5rem 3rem;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    min-width: 340px;
+}
+
+.label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #64748b;
+}
+
+/* Count Number Display */
+#count {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #94a3b8; /* Default muted color jab 0 ho */
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+    transition: color 0.3s ease;
+    line-height: 1;
+    margin: 0.5rem 0;
+}
+
+/* Jab count 0 se zyada ho toh soft glowing green color */
+#count.active-count {
+    color: #38bdf8;
+    text-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+/* Bouncing Animation Class */
+.bounce {
+    animation: popBounce 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popBounce {
+    0% {
+        transform: scale(0.85);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Buttons Container */
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+button {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+/* Add Button (Soft Blue) */
+#add-btn {
+    background-color: #2563eb;
+    color: #f8fafc;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+#add-btn:hover {
+    background-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+/* Minus Button */
+#minus-btn {
+    background-color: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+}
+
+#minus-btn:hover:not(:disabled) {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Disabled State jab count 0 ho */
+#minus-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Reset Button */
+#reset-btn {
+    background-color: transparent;
+    color: #64748b;
+    border: 1px solid transparent;
+    padding: 0.85rem 1.1rem;
+}
+
+#reset-btn:hover {
+    color: #e2e8f0;
+    background-color: #1e293b;
+}
+
+/* Click Feel */
+button:active:not(:disabled) {
+    transform: scale(0.94);
+}
